@@ -21,25 +21,26 @@ export const getFilteredTrips = ({trips, filters}) => {
 };
 
 
-// export const getTripById = ({trips}, tripId) => trips.filter(trip => trip.tripId == tripId);
-// console.log(getTripById);
 
 export const getTripById = ({trips}, tripId) => {
   const filtered = trips;
 
   // TODO - filter trips by tripId
+  const trip = filtered.find(t => t.id == tripId);
 
   console.log('filtering trips by tripId:', tripId, filtered);
-  return filtered.length ? filtered[0] : {error: true};
+  return trip ? trip : {error: true};
 };
 
 export const getTripsForCountry = ({trips}, countryCode) => {
   const filtered = trips.countryCode;
 
   // TODO - filter trips by countryCode
+  const country = filtered.filters(trip => trip.id == countryCode);
 
   console.log('filtering trips by countryCode:', countryCode, filtered);
-  return filtered.length ? filtered : [{error: true}];
+  // return filtered.length ? filtered : [{error: true}];
+  return country ? country : [{error: true}];
 };
 
 /* ACTIONS */

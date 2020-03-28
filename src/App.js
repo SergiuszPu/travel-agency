@@ -4,8 +4,9 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import MainLayout from './components/layout/MainLayout/MainLayout';
-
+import Trip from './components/views/Trip/TripContainer';
 import Home from './components/views/Home/Home';
+import Country from './components/views/Country/CountryContainer';
 import Trips from './components/views/Trips/TripsContainer';
 import Countries from './components/views/Countries/CountriesContainer';
 import Regions from './components/views/Regions/RegionsContainer';
@@ -40,8 +41,10 @@ class App extends React.Component {
         <MainLayout>
           <Switch location={location}>
             <Route exact path='/' component={Home} />
-            <Route exact path="/trips/:id" component={Trips} />
-            <Route exact path="/countries/:id" component={Countries} />
+            <Route exact path="/trips" component={Trips} />
+            <Route exact path="/trip/:id" component={Trip} />
+            <Route exact path="/countries" component={Countries} />
+            <Route exact path="/country/:id" component={Country} />
             <Route exact path='/regions' component={Regions} />
             <Route exact path='/info' component={Info} />
             <Route path='*' component={NotFound} />
