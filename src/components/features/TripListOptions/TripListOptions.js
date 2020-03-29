@@ -1,23 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TripListOptions.scss';
-// import {withRouter} from 'react-router';
+import {withRouter} from 'react-router';
 import {Row, Col} from 'react-flexbox-grid';
 
 class TripListOptions extends React.Component {
+
+  static propTypes = {
+    removeTag: PropTypes.func,
+    addTag: PropTypes.func,
+    changeDuration: PropTypes.func,
+  }
+
   handleTags(tag, checked){
     if(checked) {
       console.log('Adding tag', tag);
       // TODO - use action dispatcher from props
+      this.props.addTag(tag);
+
     } else {
       console.log('Removing tag', tag);
       // TODO - use action dispatcher from props
+      this.props.removeTag(tag);
     }
   }
 
   handleDuration(type, value){
     console.log('Changing duration', type, value);
     // TODO - use action dispatcher from props
+    this.props.changeDuration();
   }
 
   handleSearch(phrase){
@@ -75,4 +86,4 @@ TripListOptions.propTypes = {
   changeSearchPhrase: PropTypes.func,
 };
 
-export default TripListOptions;
+export default withRouter(TripListOptions);

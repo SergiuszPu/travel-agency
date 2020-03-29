@@ -33,14 +33,15 @@ export const getTripById = ({trips}, tripId) => {
 };
 
 export const getTripsForCountry = ({trips}, countryCode) => {
-  const filtered = trips;
+  const filtered = trips.filter(trip => trip.countryCode == countryCode);
 
   // TODO - filter trips by countryCode
-  const country = filtered.filter(trip => trip.id == countryCode);
+  // const country = filtered.filter(trip => trip.id == countryCode);
 
   console.log('filtering trips by countryCode:', countryCode, filtered);
+  return filtered ? filtered : [{error: true}];
   // return filtered.length ? filtered : [{error: true}];
-  return country ? country : [{error: true}];
+  // return country ? country : [{error: true}];
 };
 
 /* ACTIONS */
@@ -64,3 +65,22 @@ export default function reducer(statePart = [], action = {}) {
   }
 }
  */
+
+// // action name creator
+// const reducerName = 'trips';
+// const createActionName = name => `app/${reducerName}/${name}`;
+
+// // action types
+// export const ADD_TRIP = createActionName('ADD_TRIP');
+
+// // action creators
+// export const createActionAddTrip = payload => ({payload, type: ADD_TRIP});
+
+// // reducer
+// export default function reducer(statePart = [], action = {}) {
+//   switch (action.type) {
+//     default:
+//       return statePart;
+//   }
+// }
+
