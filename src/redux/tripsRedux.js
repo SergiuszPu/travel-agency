@@ -24,7 +24,6 @@ export const getFilteredTrips = ({trips, filters}) => {
 
 export const getTripById = ({trips}, tripId) => {
   const filtered = trips;
-
   // TODO - filter trips by tripId
   const trip = filtered.find(t => t.id == tripId);
 

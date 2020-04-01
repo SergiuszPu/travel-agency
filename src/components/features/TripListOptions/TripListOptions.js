@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './TripListOptions.scss';
 import {withRouter} from 'react-router';
 import {Row, Col} from 'react-flexbox-grid';
+import { changeDuration } from '../../../redux/filtersRedux';
 
 class TripListOptions extends React.Component {
 
@@ -28,11 +29,12 @@ class TripListOptions extends React.Component {
   handleDuration(type, value){
     console.log('Changing duration', type, value);
     // TODO - use action dispatcher from props
-    this.props.changeDuration();
+    const {changeDuration} = this.props;
+    changeDuration(type, value);
   }
 
   handleSearch(phrase){
-    this.props.changeSearchPhrase(phrase);
+    this.props.changeSearchPhrase(phrase); 
   }
 
   render(){
