@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import styles from './TripListOptions.scss';
 import {withRouter} from 'react-router';
 import {Row, Col} from 'react-flexbox-grid';
-import { changeDuration } from '../../../redux/filtersRedux';
 
 class TripListOptions extends React.Component {
 
