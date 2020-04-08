@@ -2,10 +2,10 @@ import React from 'react';
 import OrderSummery from '../OrderSummery/OrderSummery';
 import {Row, Col} from 'react-flexbox-grid';
 
-const OrderForm = (cost, options) => (
+const OrderForm = ({tripCost, options}) => (
   <Row>
     <Col xs={12}>
-      <OrderSummery tripCost={cost, options} />
+      <OrderSummery tripCost={tripCost} options={options} />
     </Col>
   </Row>
 );

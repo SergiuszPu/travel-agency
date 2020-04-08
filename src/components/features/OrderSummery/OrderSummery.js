@@ -4,10 +4,10 @@ import {calculateTotal} from '../../../utils/calculateTotal';
 import {formatPrice} from '../../../utils/formatPrice';
 
 
-const OrderSummary = (state, price ) => (
+const OrderSummary = ({tripCost, options}) => (
 
   <h2 className={styles.component}>
-      Total {calculateTotal(formatPrice(price)), state.options}
+      Total {calculateTotal(formatPrice(tripCost), options)}
   </h2>
 );
 
