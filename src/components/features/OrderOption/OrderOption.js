@@ -1,13 +1,31 @@
 import React from 'react';
 import styles from './OrderOption.scss';
+import OrderOptionCheckboxer from './OrderOptionCheckboxer';
+import OrderOptionDropdown from './OrderOptionDropdown';
+import OrderOptionIcon from './OrderOptionIcon';
+import OrderOptionNumber from './OrderOprionNumber';
 
-const OrderOption = () => (
-  
-  <div className={styles.component}>
-    <h3 className={styles.title}>
-        Option: Car Rental
-    </h3>
-  </div>
-);
+const optionTypes = {
+  dropdown: OrderOptionDropdown,
+  icons: OrderOptionIcon,
+  checkboxes: OrderOptionCheckboxer,
+  number: OrderOptionNumber,
+};
+
+const OrderOption = ({name, type, ...otherProps}) => {
+  const OptionComponent = optionTypes[type];
+  if(!OptionComponent){
+    return null;
+  } else {
+    return (
+      <div className={styles.component}>
+        <h3 className={styles.title}>{name}</h3>
+        <OptionComponent
+          {...otherProps}
+        />
+      </div>
+    );
+  }
+};
 
 export default OrderOption;
