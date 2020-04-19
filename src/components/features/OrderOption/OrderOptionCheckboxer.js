@@ -24,7 +24,6 @@ const OrderOptionCheckboxer = ({values, setOptionValue, currentValue}) => (
           value={value.id}
           onChange={event => setOptionValue(newValueSet(currentValue, value.id, event.currentTarget.checked))}/> 
         {value.name} {formatPrice(value.price)}
-        
       </label>
     ))}
   </div>

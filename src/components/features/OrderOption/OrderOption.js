@@ -3,13 +3,13 @@ import styles from './OrderOption.scss';
 import OrderOptionCheckboxer from './OrderOptionCheckboxer';
 import OrderOptionDropdown from './OrderOptionDropdown';
 import OrderOptionIcon from './OrderOptionIcon';
-import OrderOptionNumber from './OrderOprionNumber';
+import OrderOptionNumber from './OrderOptionNumber';
 import OrderOptionText from './OrderOptionText';
 import OrderOptionDate from './OrderOptionDate';
 
 const optionTypes = {
   dropdown: OrderOptionDropdown,
-  icons: OrderOptionIcon,
+  icon: OrderOptionIcon,
   checkboxes: OrderOptionCheckboxer,
   number: OrderOptionNumber,
   text: OrderOptionText,
