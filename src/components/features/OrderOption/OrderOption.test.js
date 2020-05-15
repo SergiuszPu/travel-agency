@@ -71,7 +71,7 @@ for(let type in optionTypes){
     let mockSetOrderOption; 
 
     beforeEach(() => {
-      mockSetOrderOption = jest.fn();
+      mockSetOrderOption = jest.fn();//sposob na stworzenie atrapy funkcji 
       component = shallow(
         <OrderOption 
           type={type} 
@@ -98,14 +98,15 @@ for(let type in optionTypes){
           const select = renderedSubcomponent.find('select');
           expect(select.length).toBe(1);
         
-          const emptyOption = select.find('option[value=""]').length;
+          const emptyOption = select.find('option[value=""]').length;//??????????????????
           expect(emptyOption).toBe(1);
         
-          const options = select.find('option').not('[value=""]');
-          expect(options.length).toBe(mockProps.values.length);
+          const options = select.find('option').not('[value=""]');//?????????????????
+          expect(options.length).toBe(mockProps.values.length);// ??? dwa elementy z values?
           expect(options.at(0).prop('value')).toBe(mockProps.values[0].id);
           expect(options.at(1).prop('value')).toBe(mockProps.values[1].id);
         });
+
         it('should run setOrderOption function on change', () => {
           renderedSubcomponent.find('select').simulate('change', {currentTarget: {value: testValue}});
           expect(mockSetOrderOption).toBeCalledTimes(1);

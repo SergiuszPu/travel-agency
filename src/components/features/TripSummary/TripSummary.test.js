@@ -37,7 +37,7 @@ describe('Component TripSummary', () => {
     const id = 'abc';
     const tags = ['tags0', 'tags1'];
     const wrapper = shallow(<TripSummary id={id} tags={tags} />);
-    const component = wrapper.find('.tags');
+    const component = wrapper.find('.tags');// dlaczego np nie moze byc tu tags.find('span')?? po className szukac??
     const spans = component.find('span');
 
     expect(spans.length).toEqual(tags.length);
