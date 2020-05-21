@@ -13,6 +13,45 @@
       "start-date": "",
       "totalCost": "$121,276",
       "id": 1
+    },
+    {
+      "car-rental": "luxury",
+      "accommodation": "hotel",
+      "features": [
+        "pool",
+        "kitchen"
+      ],
+      "adults": "3",
+      "children": "2",
+      "name": "puka",
+      "contact": "sergiusz@pl.pl",
+      "start-date": "2020-05-27T11:24:42.000Z",
+      "totalCost": "$124,476",
+      "id": 2
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$29,319",
+      "id": 3
+    },
+    {
+      "car-rental": "",
+      "accommodation": "hotel",
+      "features": [],
+      "adults": 1,
+      "children": 0,
+      "name": "",
+      "contact": "",
+      "start-date": "",
+      "totalCost": "$139,399",
+      "id": 4
     }
   ]
 }

@@ -34,16 +34,16 @@ describe('Component HappyHourAd', () => {
 
 const trueDate = Date;
 const mockDate = customDate => class extends Date {
-  constructor(...args) {//?? zeby zadziałało agrs musze stworzyc stała obiekt args u góry?
+  constructor(...args) {
     if(args.length){
       super(...args);
     } else {
-      super(customDate);//??? dlaczego customDate po tym jak została usunieta stala
+      super(customDate);
     }
-    return this;//??? jak mam rozumiec caly ten warunek
+    return this;
   }
   static now(){
-    return (new Date(customDate)).getTime();//???????????????
+    return (new Date(customDate)).getTime();
   }
 };
 
@@ -52,7 +52,7 @@ const checkDescriptionAtTime = (time, expectedDescription) => {
     global.Date = mockDate(`2019-05-14T${time}.135Z`);//?? skaad jest pobierany cas ?
   
     const component = shallow(<HappyHourAd {...mockProps} />);
-    const renderedTime = component.find(select.description).at(1).text();
+    const renderedTime = component.find(select.description).text();
 
     expect(renderedTime).toEqual(expectedDescription);
   
@@ -71,7 +71,7 @@ const checkDescriptionAfterTime = (time, delaySeconds, expectedDescription) => {
     global.Date = mockDate(newTime.getTime());
     jest.advanceTimersByTime(delaySeconds * 1000);
 
-    const renderedTime = component.find(select.description).at(1).text();
+    const renderedTime = component.find(select.description).text();
 
     expect(renderedTime).toEqual(expectedDescription);
   
@@ -98,6 +98,6 @@ describe('Component HappyHourAdd with mocked Date', () => {
 });
 
 describe('Component HappyHourAd with mocked Date and delay', () => {
-  checkDescriptionAfterTime('11:59:59', 1, mockProps.description );
-  checkDescriptionAfterTime('12:59:59', 23 * 60 * 60 + '');//????????????????
+  checkDescriptionAfterTime('11:57:58', 2, '120');
+  checkDescriptionAfterTime('11:59:59', 1, mockProps.description);
 });
